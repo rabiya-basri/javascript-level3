@@ -1,0 +1,29 @@
+<!--Words character counter
+1.user should be able to enter a string in form
+2.user should be able to submit a form
+3.after the form is submitted,calculate and display total characters 
+words in string-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WORDS charcter count</title>
+    </head>
+    <body>
+        <form onsubmit="funSub(event)">
+            <label for="str">take input</label>
+            <input type="text" name="str" id="str"/>
+            <input type="submit">
+        </form>
+        <h1 id="result"></h1>
+        <script>
+            const h1Handler=document.querySelector('#result')
+            function funSub(e){
+                e.preventDefault()
+                const str=e.target.str.value
+                const char=str.length
+                const words=str.split(' ').length
+                h1Handler.innerHTML=`char-${char} and words-${words}`
+            }
+        </script>
+    </body>
+</html>

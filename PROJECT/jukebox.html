@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>juke box</title>
+    </head>
+    <body>
+
+        <audio id="myAudio" controls autoplay="">
+            <source src="song.mp3">
+        </audio>
+        <button>click to play random song</button>
+        <script>
+            const audioTag=document.querySelector('#myAudio')
+            const playbtn=document.querySelector('button')
+            // window.onload=function(){//works in firefox
+            //     audioTag.play()
+            //     console.log(audioTag)
+            // }
+            playbtn.addEventListener('click',function(){//works in crome
+                audioTag.play()
+            })
+            
+        </script>
+    </body>
+</html>

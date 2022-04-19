@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>dynamic</title>
+    </head>
+    <body>
+        <div id='app'>
+
+        </div>
+        <script>
+            const team=[
+                'delhi','bangalore','mumbai','pune'
+            ]
+            const appHandler=document.getElementById('app')
+
+            const h1Tag=document.createElement('h1')
+            const ulTag=document.createElement('ul')
+
+            appHandler.appendChild(h1Tag)
+
+            h1Tag.textContent=`Team listing-${team.length}`
+            team.sort().reverse().forEach(function(ele){
+                const liTag=document.createElement('li')
+                liTag.textContent=ele
+                ulTag.appendChild(liTag)
+
+            })
+            appHandler.appendChild(ulTag)
+           
+        </script>
+    </body>
+</html>

@@ -1,0 +1,33 @@
+<!--Greeting based on time
+1.when the page loads get the system current time
+2.greet the user either as good morning, good afteernoon, good evening depending on the time
+note:
+    0.00am-11:59am gm
+    12:00pm-17:59pm ge
+    18:00pm-23:59om gn
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercises-3 | get current system date</title>
+    </head>
+    <body>
+        <h1></h1>
+        <script>
+            const h1Handler=document.querySelector('h1')
+            //1
+            const today=new Date()
+            const hours=today.getHours()
+            let result=''
+            if(hours>=0 && hours<=11)
+            {
+                result='good morning'
+            }else if(hours>=12 && hours<=17){
+                result='good afternoon'
+            }else if(hours>=18){
+                result='good evening'
+            }
+            h1Handler.textContent=result
+        </script>
+    </body>
+</html>

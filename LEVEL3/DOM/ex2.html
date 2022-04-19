@@ -1,0 +1,22 @@
+<!--Displaying name length
+1.when the page loads ask the user to enter theor name
+2.calculate the length of their name (white apsce in between to be consider)
+3.display the name as well as the count of characters in the webpage-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>exercise-2 | display name length</title>
+    </head>
+    <body>
+        <h1></h1>
+        <script>
+            const h1Handler=document.querySelector('h1')
+            //1
+            const name=prompt('Enter your name').trim()
+            //2
+            const strLength=name.length
+            //3
+            h1Handler.textContent=`${name} has ${strLength} characters`
+        </script>
+    </body>
+</html>

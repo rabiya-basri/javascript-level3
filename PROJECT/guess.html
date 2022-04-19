@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Guess Game | browser</title>
+    </head>
+    <body>
+        <h1>Guess a Number</h1>
+        <form onsubmit="userName(event)">
+            <input type="text" name="user" placeholder="Enter your name"/>
+        </form>
+        <h2></h2>
+
+        <form onsubmit="guess(event)">
+            <input type="text" name="guessNumber" placeholder="Guess Number"/>
+        </form>
+        <h2 id="result"></h2>
+        <h2 id="win"></h2>
+        <script>
+            const h1Handler=document.querySelector('h1')
+            const h2Handler=document.querySelector('h2')
+            const resultHandler=document.querySelector('#result')
+            const final=document.querySelector('#win')
+
+            h1Handler.style.color='Blue'
+            function userName(e){
+                e.preventDefault()
+                const username=e.target.user.value
+                console.log(username)
+               h2Handler.textContent=`Welcome to Guess Game ${username.toUpperCase()}`
+            }
+            function guess(e){
+                e.preventDefault()
+                //console.log(e.target.guessNumber.value)
+                const target=Math.ceil(Math.random()*100)
+                console.log(target)
+                const maxGuess=5
+                let won=false
+                const guessIt=e.target.guessNumber.value
+                for(let i=0;i<maxGuess;i++){    
+                    if(parseInt(guessIt)===target){
+                        resultHandler.textContent=`Good job , ${username} you guess in ${i+1} guesses!`
+                        won=true
+                        break
+                    }else if(guessIt<target){
+                        resultHandler.textContent=`oops! your guess is low`
+                    }else if(guessIt>target){
+                        resultHandler.textContent=`your guess is high`
+                    } 
+                }
+                if(!won){
+                    final.textContent=`you guess it wrong, my guess was ${target}`
+                }
+            }
+        </script>
+    </body>
+</html>

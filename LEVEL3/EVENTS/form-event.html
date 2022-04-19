@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Form Event|1</title>
+    </head>
+    <body>
+        <form onsubmit="submitForm(event)">
+            <label for="username">username</label>
+            <input type="text" onfocus="namefocus()" onblur="nameblur()" onchange="nameChangr()" name="username" id="username"/>
+            <input type="submit"/>
+        </form>
+        <script>
+            function namefocus(){
+                console.log('focus event occur')
+            }
+            function nameblur(){
+                console.log('blur occured')
+            }
+            function nameChangr(){
+                console.log('onchnage occur')
+            }
+            function submitForm(e){
+                e.preventDefault()
+                console.log('submit event occur',e)
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Mouse events</title>
+    </head>
+    <body>
+        <button onclick="fun1()">click event</button>
+        <button ondblclick="fun2()">dbl click</button>
+        <button onmouseenter="fun3()"> mouse enter</button>
+        <button onmouseleave="fun4()">mouse leave</button>
+        <button onmousedown="fun5()">mouse down</button>
+        <button onmouseup="fun6()">mouse up</button>
+        <script>
+            function fun1(){
+                console.log('fires when clicked and pressed')
+            }
+            function fun2(){
+                console.log('fires when double clickedS')
+            }
+            function fun3(){
+                console.log('fires when mouse pointer enter an event')
+            }
+            function fun4(){
+                console.log('fires when mouse leaves an event')
+            }
+            function fun5(){
+                console.log('fires when mouse button was pressed')
+            }
+            function fun6(){
+                console.log('fires when mouse button was released')
+            }
+        </script>
+    </body>
+</html>

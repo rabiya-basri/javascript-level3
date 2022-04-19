@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>json</title>
+    </head>
+    <body>
+        <button id='btn'>
+            fectch data
+        </button>
+        <ul id='list'>
+
+        </ul>
+        <script>
+            const btnHandler=document.getElementById('btn')
+            const ulTag=document.getElementById('list')
+            btnHandler.addEventListener('click',function(){
+                const xhr=new XMLHttpRequest()
+                xhr.open('GET','https://jsonplaceholder.typicode.com/users')
+                xhr.send()
+
+
+                xhr.onload=function(){
+                    const result=JSON.parse(xhr.responseText)
+                    ulTag.innerHTML=''
+                    result.forEach((user)=>{
+                        const liTag=document.createElement('li')
+                        liTag.textContent=`${user.name}`
+                        ulTag.appendChild(liTag)
+                    })
+                   
+
+                }
+            })
+        </script>
+    </body>
+</html>

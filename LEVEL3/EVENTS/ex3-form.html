@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FORM|user name</title>
+    </head>
+    <body>
+        <h1>user name</h1>
+        <form onsubmit="submitForm(event)">
+            <label for="username">username</label>
+            <input type="text" name="username" id="username" />
+            <input type="submit">
+        </form>
+
+        <script>
+            function submitForm(e){
+                e.preventDefault()
+                console.log('submit occur', e)
+                console.log('user name',e.target.username.value)
+            }
+        </script>
+    </body>
+</html>

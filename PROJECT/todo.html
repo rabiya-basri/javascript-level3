@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head><title>
+        Todo| App
+    </title></head>
+    <body>
+        <h1>Task Box</h1>
+        <form onsubmit="handelSubmit(event)">
+            <input type="text" name="title" placeholder="Enter task title"/>
+        </form>
+        <h2>My task -0</h2>
+        <ul>
+
+        </ul>
+        <script>
+            const tasks= JSON.parse(localStorage.getItem('tasks')) || []
+            const ulHandler=document.querySelector('ul')
+            const h2Handler=document.querySelector('h2')
+
+            const handelSubmit = (e) =>{
+                e.preventDefault()
+
+                const task={
+                    id:Number(new Date()),
+                    title:e.target.title.value
+                }
+               tasks.push(task)
+               localStorage.setItem('tasks',JSON.stringify(tasks))
+               e.target.reset()//will reset the from
+                
+               liGenerator(task)
+            }
+            //create list item
+            const liGenerator=(task)=>{
+               const liTag=document.createElement('li')
+               liTag.textContent=task.title
+               ulHandler.appendChild(liTag)
+               h2Handler.textContent=`My Task - ${tasks.length}`  
+               liRemove(liTag,task)    
+            }
+             //remove functionality
+            const liRemove=(liTag,task)=>{
+               liTag.addEventListener('click',()=>{
+                   ulHandler.removeChild(liTag)
+
+                   const index=tasks.findIndex((arrTask)=>{
+                   return arrTask.id==task.id
+               })
+               tasks.splice(index,1)
+               localStorage.setItem('tasks',JSON.stringify(tasks))
+               h2Handler.textContent=`MY Task - ${tasks.length}`
+               }) 
+            }
+            tasks.forEach((task)=>{
+                liGenerator(task)
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,44 @@
+<!--Functional requirement
+1.geta country list from api
+2.display only country name as alist
+3.provide a button next to each of the country
+4.display a capital name in alert box on clicking on the button-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Assignment 2</title>
+    </head>
+    <body>
+        <h1></h1>
+           <ul>
+
+           </ul>
+        <script>
+            const ulTag=document.querySelector('ul')
+            const h1Handler=document.querySelector('h1')
+            window.onload=function(){
+               const xhr=new XMLHttpRequest()
+               xhr.open('GET','https://restcountries.eu/rest/v2/all?fields=name;capital') 
+               xhr.send()
+
+               xhr.onload=function(){
+                   const data=JSON.parse(xhr.responseText)
+                    h1Handler.textContent=`Listing countries-${data.length}`
+
+                    data.forEach((country)=>{
+                        const liTag=document.createElement('li')
+                        const btn=document.createElement('button')
+                        liTag.textContent=`${country.name}`
+                        btn.textContent='show'
+                        liTag.appendChild(btn)
+                        ulTag.appendChild(liTag)
+
+                        btn.addEventListener('click',function(){
+                            alert(`capital - ${country.capital}`)
+                        })
+                    })
+               }
+            }
+        </script>
+    </body>
+</html>

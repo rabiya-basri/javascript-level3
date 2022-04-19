@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>POints to remember|local storage</title>
+    </head>
+    <body>
+        <h1>POints to remember|local storage</h1>
+        <script>
+            localStorage.setItem('name','dctacademy')//name:'dctacademy'
+            localStorage.setItem('age',20)//age:'20'
+            console.log(localStorage)
+            //to store object / array convert them to string using JSON.stringify()
+            localStorage.setItem('contacts',JSON.stringify({'email':'rab@gmail.com','mobile':76578754}))
+            localStorage.setItem('skill',JSON.stringify(['html','css']))
+            console.log(localStorage)
+            //to cover string to js object/array we use JSON.parse()
+            const parseContact=JSON.parse(localStorage.getItem('contacts'))
+            console.log(parseContact)
+            const parseSkills=JSON.parse(localStorage.getItem('skill'))
+            console.log(parseSkills)
+        </script>
+    </body>
+</html>

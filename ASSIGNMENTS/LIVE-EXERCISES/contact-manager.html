@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>contact-manager</title>
+    </head>
+    <body>
+        <h1>contact-manager</h1>
+        <input type="text" id="search" placeholder="search by name or mobile number"/><br/>
+        <h2>my contact- <span  id="heading">0</span> </h2>
+        <ul id="list">
+
+        </ul>
+        <script>
+            const contacts=[
+                {name:'ross',mobile:'897654647'},
+                {name:'rachile',mobile:'937654647'},
+                {name:'joe',mobile:'8976784647'},
+                {name:'monica',mobile:'9387654647'}
+            ]
+            const searchHandler=document.getElementById('search')
+            const headingHandler=document.getElementById('heading')
+            const listHandler=document.querySelector('#list')
+
+            headingHandler.textContent=contacts.length
+
+            function liFactory(arr){
+                arr.forEach(function(ele){
+                const liTag=document.createElement('li')
+                liTag.textContent=`${ele.name}-${ele.mobile}`
+                listHandler.appendChild(liTag)
+            })
+            }
+            liFactory(contacts)
+
+                searchHandler.addEventListener('keyup',function(e){
+                const inputText=e.target.value
+                const result=contacts.filter(function(ele){
+                    return ele.name.toLowerCase().includes(inputText.toLowerCase()) || ele.mobile.includes(inputText)
+                })   
+            //clear out the list item from screen
+            listHandler.innerHTML=''
+            
+            headingHandler.textContent=result.length
+
+            //ebuilding list items
+            liFactory(result)
+        })
+        </script>
+    </body>
+</html>

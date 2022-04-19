@@ -1,0 +1,51 @@
+<!--FUNCTION REQUIREMENT
+note: all the changes to index.html has to done using javascript
+1.change the heading to understanding the DOM
+2.change the color of heading to orange
+3.increase the text of paragraph text to 20
+4.change the back ground color of page to white-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DOM</title>
+        <style>
+            body{
+                background-color: burlywood;
+            }
+            h1{
+                color: blue;
+                text-decoration: underline;
+                text-align: center;
+            }
+            p{
+               text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Introduction to dom</h1>
+        <p> DOM-stands for document object model.</p>
+        <p>when ever we crete a webpage the browser interprete the HTML and CSSS .
+            and when it run on the browser , the browser create a DOM object , that is built in object
+            ,where we can update the structure , style,content of the webpage.but we those change canot be 
+            saved in source code.
+        </p>
+
+        <script>
+            const h1Handler=document.querySelector('h1')
+            const pHandler=document.querySelector('p')
+            //1
+            h1Handler.textContent='Understanding dom'
+
+            //2
+            h1Handler.style.color='orange'
+
+            //3
+            pHandler.style.fontSize='20px'
+
+            //4
+            document.querySelector('body').style.backgroundColor='white'
+        </script>
+    </body>
+</html>

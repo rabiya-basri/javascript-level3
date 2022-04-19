@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            updating elements dynamically
+        </title>
+    </head>
+    <body>
+        <a href="http://facebook.com">facebook</a>
+        <a href="http://linkedin.com">linkedin</a>
+        <a href="http://instagram.com">instagram</a>
+        <script>
+            const element=document.getElementsByTagName('a')
+            for(let i=0;i<element.length;i++){
+                element[i].setAttribute('target','_blank')
+            }
+        </script>
+    </body>
+</html>

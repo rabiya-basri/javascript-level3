@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BY single selector</title>
+    </head>
+    <body>
+        <h1>Code Dct</h1>
+        <p>email system built</p>
+        <h1>unordered list</h1>
+        <ul>
+            <li>complication</li>
+            <li>production</li>
+            <li>depeloyment</li>
+        </ul>
+
+        <script>
+            const h1Elements=document.querySelectorAll('h1')
+            const pHandler=document.querySelector('p')
+            const liHandler=document.querySelectorAll('li')
+
+            for(let i=0;i<h1Elements.length;i++){
+                h1Elements[i].style.fontSize='40px'
+            }
+            for (const ele of liHandler) {
+                ele.style.textDecoration='line-through'
+            }
+
+            pHandler.style.fontSize='20px'
+        </script>
+    </body>
+</html>

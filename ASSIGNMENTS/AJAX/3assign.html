@@ -1,0 +1,46 @@
+<!--Functional requirement
+1.get the country list from the api
+2.display only the country name as a list
+3.provide a button next to each of the country
+4.display capital name,population and latitude 
+and longituted in alert box on click of the button-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Assignment 3</title>
+    </head>
+    <body>
+        <h1></h1>
+        <ul>
+
+        </ul>
+        <script>
+            const ulTag=document.querySelector('ul')
+            const h1Handler=document.querySelector('h1')
+            window.onload=function(e){
+                e.preventDefault()
+                const xhr=new XMLHttpRequest()
+                xhr.open('GET','https://restcountries.eu/rest/v2/all')
+                xhr.send()
+
+                xhr.onload=function(){
+                    const data=JSON.parse(xhr.responseText)
+                    h1Handler.textContent=`Listing countries-${data.length}`
+                    data.forEach((country)=>{
+                        const liTag=document.createElement('li')
+                        const btnHandler=document.createElement('button')
+                        btnHandler.textContent='show'
+                        liTag.textContent=`${country.name}`
+                        liTag.appendChild(btnHandler)
+                        ulTag.appendChild(liTag)
+
+                        btnHandler.addEventListener('click',function(){
+                            alert(`capital - ${country.capital},population - ${country.population},position-[${country.latlng}]`)
+                        })
+                    })
+
+                }
+            }
+        </script>
+    </body>
+</html>

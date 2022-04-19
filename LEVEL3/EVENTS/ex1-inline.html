@@ -1,0 +1,24 @@
+<!--What day is it?
+    Functional requirement
+
+1.webpage should contain button
+2.when the button is clicked we need to display the current day
+3.inline event handler must be setup-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>what day is it?</title>
+    </head>
+    <body>
+        <h1></h1>
+        <button onclick="day()">day</button>
+        <script>
+            const h1Handler=document.querySelector('h1')
+            function day(){
+                const days=['sunday','monday','tuesday','wednesday','thursday','friday','saturday']
+                const today=new Date()
+                h1Handler.textContent=days[today.getDay()]
+            }
+        </script>
+    </body>
+</html>

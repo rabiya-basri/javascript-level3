@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Local storage</title>
+    </head>
+    <body>
+        <h1>
+            working with local storage
+        </h1>
+        <script>
+            console.log(localStorage)//localstorgae i s a object
+            //add item in local storage with setitem(),we can add only one itam at a time
+            localStorage.setItem('name','dct academy')
+            localStorage.setItem('age','26')
+            console.log(localStorage)
+            //to know the length of lS we use length property
+            console.log(localStorage.length)
+            //to get a value we use getItem()
+            console.log(localStorage.getItem('name'))//dct academy
+            console.log(localStorage.getItem('address'))//null
+            //to remove item we use removeItem()
+            localStorage.removeItem('age')
+            console.log(localStorage)
+            //to clear all item we use clear()
+            localStorage.clear()
+            console.log(localStorage)
+        </script>
+    </body>
+</html>

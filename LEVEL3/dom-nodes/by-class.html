@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>by-class</title>
+        
+    </head>
+    <body>
+        <h1 class="main">Understanding dom</h1>
+        <p class="main"> DOM-stands for document object model.
+        when ever we crete a webpage the browser interprete the HTML and CSSS .
+            and when it run on the browser , the browser create a DOM object , that is built in object
+            ,where we can update the structure , style,content of the webpage.but we those change canot be 
+            saved in source code.
+        </p>
+        <script>
+
+            const element=document.getElementsByClassName('main')
+            for(let i=0;i<element.length;i++){
+                element[i].style.fontFamily='Arial'
+            }
+        </script>
+    </body>
+</html>

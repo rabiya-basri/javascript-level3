@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ajax implementaton</title>
+    </head>
+    <body>
+        <h1 id="title"></h1>
+        <ul id="list">
+
+        </ul>
+        <script>
+            const rootHandler = document.querySelector('#root')
+            const titleHandler=document.querySelector('#title')
+            const listHandler=document.querySelector('#list')
+
+            window.onload=function(){
+                //onload is browser event,that gets trigger when page gets loaded
+               const xhr = new XMLHttpRequest()//creating new XHR object
+               //with xhr object we are confugring request to restcountries server request
+               xhr.open('GET','https://restcountries.eu/rest/v2/all?fields=name;capital')
+               //we send request to server using send() that is performed on GET
+               xhr.send()
+
+               xhr.onload=function(){
+                   //geeting response fro reposeText property from server and assigning it to data variable
+                   //using JSON.parse converting json string to js object
+                   const data= JSON.parse(xhr.responseText)
+                   console.log('data',data)
+                   titleHandler.textContent=`Listing Countries ${data.length}`
+
+                   data.forEach((country)=>{
+                    const liTag=document.createElement('li')
+                    liTag.textContent=`${country.name} -${country.capital}`
+                    listHandler.appendChild(liTag)
+                   })
+               }
+               xhr.onerror=function(){
+                
+               }
+            }
+        </script>
+    </body>
+</html>

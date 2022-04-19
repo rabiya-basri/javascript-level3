@@ -1,0 +1,2 @@
+/*Maximun number in an array
+JS function to find the higest */

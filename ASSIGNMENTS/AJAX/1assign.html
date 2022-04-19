@@ -1,0 +1,40 @@
+<!--Functional requirement
+1.have a button on a page
+2.on click of a button get a country listing
+3.display only the country name as a list-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Country listing</title>
+    </head>
+    <body>
+        <h1>Assignment-1| Click to view country names</h1>
+        <button>Country names</button>
+        <h2></h2>
+        <ul>
+
+        </ul>
+        <script>
+            const btnHandler=document.querySelector('button')
+            const h2Handler=document.querySelector('h2')
+            const ulTag=document.querySelector('ul')
+            btnHandler.addEventListener('click',function(){
+                const xhr=new XMLHttpRequest()
+                xhr.open('GET','https://restcountries.eu/rest/v2/all?fields=name')
+                xhr.send()
+
+                xhr.onload=function(){
+                    const data=JSON.parse(xhr.responseText)
+                    console.log(data)
+                    h2Handler.textContent=`Listing Countries-${data.length}`
+                    data.forEach((country)=>{
+                        const liTag=document.createElement('li')
+                        liTag.textContent=`${country.name}`
+                        ulTag.appendChild(liTag)
+                    })
+                }
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            div{
+                text-align: center;
+            }
+            h1{
+                font-size: 100px;
+            }
+            button{
+                border-bottom-color: rgb(211, 26, 26);
+                border-bottom-width: thick;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <h1 id='count'>0</h1>
+            <button id='upBtn'>up</button>
+            <button id='downBtn'>down</button>
+            <button id='resetBtn'>reset</button>
+        </div>
+        <script>
+           const countHandler=document.getElementById('count')
+           const upBtnHandler=document.getElementById('upBtn')
+           const downBtnHandeler=document.getElementById('downBtn')
+           const resetBtnHandeler=document.getElementById('resetBtn')
+           //increment counter value
+           upBtnHandler.addEventListener('click',function(){
+               //console.log(typeof countHandler.innerHTML+1)//return string ..so use parseint(counterHandeler)
+              countHandler.innerHTML=parseInt(countHandler.innerHTML)+1
+           })
+           //decerement counter value
+           downBtnHandeler.addEventListener('click',function(){
+               countHandler.innerHTML=parseInt(countHandler.innerHTML)-1
+           })
+           //reset counter value to 0
+           resetBtnHandeler.addEventListener('click',function(){
+               countHandler.innerHTML=0
+           })
+        </script>
+    </body>
+</html>

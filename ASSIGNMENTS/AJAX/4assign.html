@@ -1,0 +1,60 @@
+<!--Functional requirement
+1.get country list from api
+2.there need to be all the alphabets from A-Z on webpage
+3.depending on the alphabets selected by the user, 
+display only the country as per the alphabet selected
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Assignment 4</title>
+    </head>
+    <body>    
+         
+        <p></p>
+        <h1></h1>
+        <ul>
+
+        </ul>
+        <script>
+            const ulTag=document.querySelector('ul')
+            const h1Tag=document.querySelector('h1')
+            const pTag=document.querySelector('p')
+            
+            const alphabets="ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('')
+
+            alphabets.forEach((alphabet)=>{
+                const aTag=document.createElement('a')
+                aTag.textContent = `${alphabet} `
+                aTag.href='#'
+                pTag.appendChild(aTag)
+                console.log(aTag)
+
+                aTag.addEventListener('click',()=>{
+                    const letter=aTag.textContent.trim()
+
+                    const xhr=new XMLHttpRequest()
+                    xhr.open('GET','https://restcountries.eu/rest/v2/all?fields=name')
+                    xhr.send()
+
+                    xhr.onload=function(){
+                        const data=JSON.parse(xhr.responseText)
+                        
+                        let count=0
+                        ulTag.textContent=""
+
+                       data.forEach((country)=>{
+                        const liTag=document.createElement('li')
+                           if(country.name[0]===letter){
+                               liTag.textContent=`${country.name}`
+                               ulTag.appendChild(liTag)
+                               count+=1
+                           }
+                       })
+                       h1Tag.textContent=`Listing ${count} countries`
+                    }
+                })
+            })
+        </script>
+    </body>
+</html>
